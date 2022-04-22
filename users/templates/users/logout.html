@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "blog/base.html" %}
 
-</body>
-</html>
+{% block content %}
+    <h2>You have been logged out!</h2>
+    <div class="border-top pt-3">
+        Thank you, please come again!
+    </div>
+    <div class="pt-3">
+        <a href="{% url 'login' %}" class="">Log In Again?</a>
+    </div>
+{% endblock content %}
