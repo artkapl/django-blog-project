@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
@@ -30,11 +31,9 @@ def user_profile(request):
             messages.success(request, f'Your account info has been updated!')
             return redirect('profile')
 
-
     else:
         user_update_form = UserUpdateForm(instance=request.user)
         profile_update_form = ProfileUpdateForm(instance=request.user.profile)
-
 
     context = {
         'user_update_form': user_update_form,
@@ -43,11 +42,9 @@ def user_profile(request):
 
     return render(request=request, template_name='users/profile.html', context=context)
 
-
 # messages options:
-    # messages.debug
-    # messages.info
-    # messages.warning
-    # messages.success
-    # messages.error
-
+# messages.debug
+# messages.info
+# messages.warning
+# messages.success
+# messages.error
